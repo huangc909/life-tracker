@@ -4,11 +4,12 @@ import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import Header from './components/Header/Header'
+// import Header from './components/Header/Header'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+import LandingPage from './components/Routes/LandingPage'
 
 class App extends Component {
   constructor (props) {
@@ -41,7 +42,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
+        {/* <Header user={user} /> */}
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
             key={msgAlert.id}
@@ -53,6 +54,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route path='/' exact render={() => (
+            <LandingPage />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
