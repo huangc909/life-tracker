@@ -4,7 +4,7 @@ import { finance, exercise, work, productivity, spending, food, hobbies, sleep }
 
 const DefaultLifeSections = (props) => {
   const { user, msgAlert } = props
-  console.log(user)
+
   finance(user)
     .then(() => msgAlert({
       heading: 'Default Life Sections Set'
