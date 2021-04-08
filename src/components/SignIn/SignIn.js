@@ -27,13 +27,15 @@ class SignIn extends Component {
     const { msgAlert, history, setUser } = this.props
 
     signIn(this.state)
-      .then(res => setUser(res.data.user))
+      .then(res => {
+        setUser(res.data.user)
+      })
       .then(() => msgAlert({
         heading: 'Sign In Success',
         message: messages.signInSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/homePage'))
       .catch(error => {
         this.setState({ email: '', password: '' })
         msgAlert({
@@ -59,6 +61,7 @@ class SignIn extends Component {
                 type="email"
                 name="email"
                 value={email}
+                autoComplete="email"
                 placeholder="Enter email"
                 onChange={this.handleChange}
               />
@@ -69,6 +72,7 @@ class SignIn extends Component {
                 required
                 name="password"
                 value={password}
+                autoComplete="current-password"
                 type="password"
                 placeholder="Password"
                 onChange={this.handleChange}

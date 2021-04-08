@@ -35,7 +35,7 @@ class SignUp extends Component {
         message: messages.signUpSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/defaultLifeSections'))
       .catch(error => {
         this.setState({ email: '', password: '', passwordConfirmation: '' })
         msgAlert({
@@ -63,6 +63,7 @@ class SignUp extends Component {
                 value={email}
                 placeholder="Enter email"
                 onChange={this.handleChange}
+                autoFocus
               />
             </Form.Group>
             <Form.Group controlId="password">
