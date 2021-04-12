@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import apiUrl from './../../apiConfig'
 
+import LifeSectionOptions from './LifeSectionOptions'
+
 const HomePage = (props) => {
   const { msgAlert, user } = props
   const [lifeSections, setLifeSections] = useState([])
@@ -46,26 +48,11 @@ const HomePage = (props) => {
     }
   }
 
-  const lifeSectionButtons = (
-    <div>
-      <button>Finance</button>
-      <button>Exercise</button>
-      <button>Work</button>
-      <button>Productivity</button>
-      <button>Spending</button>
-      <button>Food</button>
-      <button>Hobbies</button>
-      <button>Sleep</button>
-    </div>
-  )
-
   return (
     <div>
-      <h1>Life Tracker</h1>
-      <p>Start keeping track of things you&apos;re spending time on in your life</p>
+      <h1>My Life Tracker</h1>
       <div>{loading ? <p>Loading...</p> : lifeSectionJsx}</div>
-      <div>{startOptions ? lifeSectionButtons : <div></div>}</div>
-      <button>Create New</button>
+      <div>{startOptions ? <LifeSectionOptions /> : <div></div>}</div>
     </div>
   )
 }
