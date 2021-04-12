@@ -13,6 +13,8 @@ import LandingPage from './components/Routes/LandingPage'
 import HomePage from './components/Routes/HomePage'
 import DefaultLifeSections from './components/Routes/DefaultLifeSections'
 
+import LifeSectionCreate from './components/Routes/LifeSectionCreate'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -76,6 +78,10 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/homePage' render={() => (
             <HomePage msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/createLifeSection' render={(props) => (
+            <LifeSectionCreate {...props} msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
