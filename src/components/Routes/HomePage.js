@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import apiUrl from './../../apiConfig'
 
+import HomePageDisplay from './HomePageDisplay'
+
 const HomePage = (props) => {
   const { msgAlert, user } = props
   const [lifeSections, setLifeSections] = useState([])
@@ -33,23 +35,11 @@ const HomePage = (props) => {
       })
   }, [])
   console.log(lifeSections)
-  const lifeSectionJsx = lifeSections.map(lifeSection => (
-    <div key={lifeSection._id}>
-      <button>
-        <p>{lifeSection.name}</p>
-      </button>
-    </div>
-  ))
-  // const startOptions = () => {
-  //   if (lifeSections.length === 0) {
-  //     return true
-  //   }
-  // }
 
   return (
     <div>
       <h1>My Life Tracker</h1>
-      <div>{loading ? <p>Loading...</p> : lifeSectionJsx}</div>
+      <div>{ loading ? <p>Loading...</p> : <HomePageDisplay lifeSections={lifeSections} /> }</div>
     </div>
   )
 }
