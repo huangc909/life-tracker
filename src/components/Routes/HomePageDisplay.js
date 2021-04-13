@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import LifeSectionButtons from './LifeSectionButtons'
+
 const HomePageDisplay = (props) => {
   const { lifeSections } = props
 
@@ -14,7 +16,7 @@ const HomePageDisplay = (props) => {
 
   return (
     <div>
-      { trackingItem ? <p>Yes there are trackingItems here</p> : <div>Checking</div> }
+      { trackingItem ? <p>Yes there are trackingItems here</p> : <LifeSectionButtons lifeSections={lifeSections}/> }
     </div>
   )
 }
