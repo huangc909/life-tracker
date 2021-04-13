@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 const LifeSectionButtons = (props) => {
   const { lifeSections } = props
 
@@ -14,7 +16,9 @@ const LifeSectionButtons = (props) => {
   return (
     <div>
       { lifeSectionJsx }
-      <button>Create New</button>
+      <Link to='/createLifeSection'>
+        <button>Create New</button>
+      </Link>
     </div>
   )
 }
