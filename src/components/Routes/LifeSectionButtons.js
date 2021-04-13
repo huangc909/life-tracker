@@ -7,16 +7,23 @@ const LifeSectionButtons = (props) => {
 
   const lifeSectionJsx = lifeSections.map(lifeSection => (
     <div key={lifeSection._id}>
-      <button>
-        <p>{lifeSection.name}</p>
-      </button>
+      <Link to={{
+        pathname: '/trackingItem-create',
+        aboutProps: {
+          lifeSection: { lifeSection }
+        }
+      }}>
+        <button>
+          <p>{lifeSection.name}</p>
+        </button>
+      </Link>
     </div>
   ))
 
   return (
     <div>
       { lifeSectionJsx }
-      <Link to='/createLifeSection'>
+      <Link to='/lifeSection-create'>
         <button>Create New</button>
       </Link>
     </div>

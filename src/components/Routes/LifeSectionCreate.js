@@ -33,7 +33,7 @@ const LifeSectionCreate = props => {
       .then(res => setLifeSectionId(res.data.lifeSection._id))
       .then(() => msgAlert({
         heading: 'Successfully created life section',
-        variant: 'sucess'
+        variant: 'success'
       }))
       .catch(error => {
         setLifeSection({ name: '' })

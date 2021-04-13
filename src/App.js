@@ -14,6 +14,7 @@ import HomePage from './components/Routes/HomePage'
 import DefaultLifeSections from './components/Routes/DefaultLifeSections'
 
 import LifeSectionCreate from './components/Routes/LifeSectionCreate'
+import TrackingItemCreate from './components/Routes/TrackingItemCreate'
 
 class App extends Component {
   constructor (props) {
@@ -80,8 +81,12 @@ class App extends Component {
             <HomePage msgAlert={this.msgAlert} user={user} />
           )} />
 
-          <AuthenticatedRoute user={user} path='/createLifeSection' render={(props) => (
+          <AuthenticatedRoute user={user} path='/lifeSection-create' render={(props) => (
             <LifeSectionCreate {...props} msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/trackingItem-create' render={(props) => (
+            <TrackingItemCreate {...props} msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
